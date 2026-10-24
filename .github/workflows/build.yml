@@ -2,16 +2,7 @@ name: Build RSDKv3
 
 on:
   push:
-    paths:
-      - android/**
-      - dependencies/**
-      - RSDKv3/**
-      - platforms/**
-      - .github/workflows/build.yml
-      - CMakeLists.txt
-    branches:
-      - master
-
+   
 env:
   GENERAL_FLAGS: "-DCMAKE_BUILD_TYPE=Release"
   # Normally you would use $VCPKG_INSTALLATION_PATH, but it's broken...so hardcode C:/vcpkg
