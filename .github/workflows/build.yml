@@ -13,7 +13,7 @@ on:
       - master
 
 env:
-  GENERAL_FLAGS: "-DRETRO_DISABLE_PLUS=ON -DCMAKE_BUILD_TYPE=Release"
+  GENERAL_FLAGS: "-DCMAKE_BUILD_TYPE=Release"
   # Normally you would use $VCPKG_INSTALLATION_PATH, but it's broken...so hardcode C:/vcpkg
   GENERAL_WIN_FLAGS: "-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
   WIN32_FLAGS: "-DVCPKG_TARGET_TRIPLET=x86-windows-static -DCMAKE_PREFIX_PATH=C:/vcpkg/installed/x86-windows-static/ -A Win32"
@@ -111,7 +111,7 @@ jobs:
       - name: Build RSDKv3 Android
         working-directory: ./android
         run: |
-          ./gradlew.bat assembleDebug --no-daemon -PABIFILTERS="armeabi-v7a;arm64-v8a" -PRETRO_DISABLE_PLUS
+          ./gradlew.bat assembleDebug --no-daemon -PABIFILTERS="armeabi-v7a;arm64-v8a"
       - name: Upload artifact Android
         uses: actions/upload-artifact@v4
         with:
